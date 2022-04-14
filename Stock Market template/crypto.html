@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML CSS Website</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+      integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="navbar__container">
+        <a href="index.html" id="navbar__logo">STOCK FORECASTER</a>
+        <div class="navbar__toggle" id="mobile-menu">
+          <span class="bar"></span> <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+        <ul class="navbar__menu">
+          <li class="navbar__item">
+            <a href="index.html" class="navbar__links">Home</a>
+          </li>
+          <li class="navbar__item">
+            <a href="/" class="navbar__links">S&P500</a>
+          </li>
+          <li class="navbar__item">
+            <a href="/" class="navbar__links">DOW</a>
+          </li>
+          <li class="navbar__btn">
+            <a href="https://www.nasdaq.com/tradetalks" target="_blank"class="button">Trade Talks</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="main">
+      <div class="main__container">
+        <div class="main__content">
+          <h1>REAL TIME</h1>
+          <p>CRYPTO INFORMATION</p>
+          <button class="main__btn"><a href="https://www.investopedia.com/terms/c/cryptocurrency.asp" target="_blank">Learn More</a></button>
+        </div>
+        <div class="main__img-container">
+          <img id="main__img" src="images/image5.jpg" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Services Section -->
+    <div class="services">
+      <h1>See all your favorite Crypto here</h1>
+      <div class="services__container">
+        <!-- TradingView Widget BEGIN -->
+        <div class="tradingview-widget-container">
+          <div class="tradingview-widget-container__widget"></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
+          {
+          "width": 1000,
+          "height": 490,
+          "defaultColumn": "overview",
+          "screener_type": "crypto_mkt",
+          "displayCurrency": "USD",
+          "colorTheme": "dark",
+          "locale": "en"
+        }
+          </script>
+        </div>
+        <!-- TradingView Widget END -->
+      </div>
+  </div>
+  
+   <!-- Footer Section -->
+   <div class="footer__container">
+    <div class="footer__links">
+      <div class="footer__link--wrapper">
+        <div class="footer__link--items">
+          <h2>About Us</h2>
+          <a href="/sign__up">How it works</a> <a href="/">Testimonials</a>
+          <a href="https://www.finance-monthly.com/2021/10/career-opportunities-in-the-stock-market-an-overview/">Careers</a> <a href="/">Investments</a>
+        </div>
+        <div class="footer__link--items">
+          <h2>Contact Us</h2>
+          <a href="/">Contact</a> <a href="/">Support</a>
+          <a href="/">Destinations</a> <a href="/">Sponsorships</a>
+        </div>
+      </div>
+      <div class="footer__link--wrapper">
+        <div class="footer__link--items">
+          <h2>Videos</h2>
+          <a href="/">Submit Video</a> <a href="/">Ambassadors</a>
+          <a href="/">Agency</a> <a href="/">Influence</a>
+        </div>
+        <div class="footer__link--items">
+          <h2>Social Media</h2>
+          <a href="/">Instagram</a> <a href="https://www.facebook.com/groups/322661495555943">Facebook</a>
+          <a href="https://youtu.be/bJHr6_skXWc">Youtube</a> <a href="https://twitter.com/Tickeron">Twitter</a>
+        </div>
+      </div>
+    </div>
+    <section class="social__media">
+      <div class="social__media--wrap">
+        <div class="footer__logo">
+          <a id="footer__logo">STOCKS FORECASTER</a>
+        </div>
+        <p class="website__rights">© Stock Team 2022. All rights reserved</p>
+      </div>
+    </section>
+  </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
