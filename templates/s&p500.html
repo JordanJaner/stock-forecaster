@@ -19,20 +19,20 @@
   <body>
     <nav class="navbar">
       <div class="navbar__container">
-        <a href="index.html" id="navbar__logo">STOCK FORECASTER</a>
+        <a href="/" id="navbar__logo">STOCK FORECASTER</a>
         <div class="navbar__toggle" id="mobile-menu">
           <span class="bar"></span> <span class="bar"></span>
           <span class="bar"></span>
         </div>
         <ul class="navbar__menu">
           <li class="navbar__item">
-            <a href="index.html" class="navbar__links">Home</a>
+            <a href="/" class="navbar__links">Home</a>
           </li>
           <li class="navbar__item">
-            <a href="/" class="navbar__links">S&P500</a>
+            <a> class="navbar__links">S&P500</a>
           </li>
           <li class="navbar__item">
-            <a href="/" class="navbar__links">DOW</a>
+            <a> class="navbar__links">DOW</a>
           </li>
           <li class="navbar__btn">
             <a href="https://www.nasdaq.com/tradetalks" target="_blank"class="button">Trade Talks</a>
@@ -47,7 +47,7 @@
           <p>ADVANCED REAL TIME CHART</p>
         </div>
         <div class="main__img-container">
-          <img id="main__img" src="images/image4.jpg" />
+          <img id="main__img" src="{{url_for('static', filename='image4.jpg')}}" />
         </div>
       </div>
     </div>
@@ -94,19 +94,19 @@
                 </div>
                 <div class="footer__link--items">
                   <h2>Contact Us</h2>
-                  <a href="/">Contact</a> <a href="/">Support</a>
-                  <a href="/">Destinations</a> <a href="/">Sponsorships</a>
+                  <a>Contact</a> <a href="/">Support</a>
+                  <a>Destinations</a> <a href="/">Sponsorships</a>
                 </div>
               </div>
               <div class="footer__link--wrapper">
                 <div class="footer__link--items">
                   <h2>Videos</h2>
-                  <a href="/">Submit Video</a> <a href="/">Ambassadors</a>
-                  <a href="/">Agency</a> <a href="/">Influence</a>
+                  <a>Submit Video</a> <a href="/">Ambassadors</a>
+                  <a>Agency</a> <a href="/">Influence</a>
                 </div>
                 <div class="footer__link--items">
                   <h2>Social Media</h2>
-                  <a href="/">Instagram</a> <a href="https://www.facebook.com/groups/322661495555943">Facebook</a>
+                  <a>Instagram</a> <a href="https://www.facebook.com/groups/322661495555943">Facebook</a>
                   <a href="https://youtu.be/bJHr6_skXWc">Youtube</a> <a href="https://twitter.com/Tickeron">Twitter</a>
                 </div>
               </div>
@@ -121,5 +121,7 @@
             </section>
           </div>
     <script src="app.js"></script>
+    <script type="text/javascript" src="{{url_for('static', filename= 'app.js')}}"></script>
+    <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet" />
   </body>
 </html>
