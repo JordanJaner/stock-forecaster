@@ -20,7 +20,7 @@ class Model():
     '''
     def __init__(self):
         '''
-        starting out with our model
+        starting out 
         '''
         
         
