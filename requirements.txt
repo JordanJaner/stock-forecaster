@@ -26,3 +26,4 @@ plotly-express>=0.4.1
 tensorflow>=2.8.0
 keras>=2.8.0
 yahoofinancials>=1.6
+h5p>=3.6.0
