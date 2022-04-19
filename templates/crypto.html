@@ -19,14 +19,14 @@
   <body>
     <nav class="navbar">
       <div class="navbar__container">
-        <a href="index.html" id="navbar__logo">STOCK FORECASTER</a>
+        <a href="/index" id="navbar__logo">STOCK FORECASTER</a>
         <div class="navbar__toggle" id="mobile-menu">
           <span class="bar"></span> <span class="bar"></span>
           <span class="bar"></span>
         </div>
         <ul class="navbar__menu">
           <li class="navbar__item">
-            <a href="index.html" class="navbar__links">Home</a>
+            <a href="/index" class="navbar__links">Home</a>
           </li>
           <li class="navbar__item">
             <a href="/" class="navbar__links">S&P500</a>
@@ -48,7 +48,7 @@
           <button class="main__btn"><a href="https://www.investopedia.com/terms/c/cryptocurrency.asp" target="_blank">Learn More</a></button>
         </div>
         <div class="main__img-container">
-          <img id="main__img" src="images/image5.jpg" />
+          <img id="main__img" src="{{url_for('static', filename='image5.jpg')}}" />
         </div>
       </div>
     </div>
@@ -115,5 +115,7 @@
   </div>
 
     <script src="app.js"></script>
+    <script type="text/javascript" src="{{url_for('static', filename= 'app.js')}}"></script>
+    <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet" />
   </body>
 </html>
