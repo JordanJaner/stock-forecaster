@@ -9,6 +9,7 @@ import datetime
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+from sklearn.preprocessing import StandardScaler, MinMaxScaler
 
 # import yahoo_fin.stock_info as si
 import yfinance as yf
@@ -42,7 +43,8 @@ class Model():
         # 'reshape' function to get it into a NumPy format
         inputs = inputs.reshape(-1,1)
         # Scaling the input
-        inputs = scaler.transform(inputs)
+        scaler = MinMaxScaler(feature_range = (0, 1))
+        inputs = scaler.fit_transform(inputs)
 
         X_test = []
 
@@ -52,6 +54,8 @@ class Model():
         X_test = np.array(X_test)
         # Making the input in 3D format
         X_test = np.reshape(X_test, (X_test.shape[0], X_test.shape[1], 1))
+
+        return X_test
 
 
 
