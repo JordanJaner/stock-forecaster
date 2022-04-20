@@ -10,12 +10,13 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
-import plotly.express as px
-import plotly.graph_objects as go
+
 # import yahoo_fin.stock_info as si
 import yfinance as yf
-from app_v3 import main
 # from yahoofinancials import YahooFinancials
+
+#load model
+model = load_model("model.h5")
 
 class Model():
     '''
@@ -36,7 +37,7 @@ class Model():
         return self.ticker_set
 
 
-    def reshape(self):
+    def reshape_model(self):
 
         stock_top_df = pd.read_csv("dataframes_top.csv")
         dataset_total = pd.concat((stock_top_df['Open'], self.ticker_set['Open']), axis = 0)
@@ -56,38 +57,15 @@ class Model():
         X_test = np.array(X_test)
         # Making the input in 3D format
         X_test = np.reshape(X_test, (X_test.shape[0], X_test.shape[1], 1))
-        return X_test
-# Graph Function
-def make_graph(self, ticker, output_file='predictions_pic.svg'):
-  date = self.ticker_set['Date']
-  Last314Days = date.tail(314)
-  real_df = self.ticker_set['Open']
-  real_df.columns = ['Real']
-  predicted_df = main.output
-  predicted_df.columns = ['Predicted']
-  line_df = pd.concat([Last314Days, real_df, predicted_df], axis=1)
-  fig = go.Figure([
-                 go.Scatter(
-                     x=line_df['Date'],
-                     y=line_df[f'Real {ticker}'],
-                    showlegend=True,
-                    name=f'Real {ticker}'
-                 ),
-                 go.Scatter(
-                     x=line_df['Date'],
-                     y=line_df[f'Predicted {ticker}'],
-                    showlegend=True,
-                    name=f'Predicted {ticker}'
-                 )
-  ])
-  fig.update_layout(
-                    yaxis_title = 'Stock Prices (USD)',
-      xaxis_title='Dates',
-      title=f'Real and Predicted {ticker} Stock Prices',
-      hovermode="x"
-  )
-  fig.write_image(output_file, width=800)
-  return fig
+
+        self.prediction = model.predict(X_test)
+        self.results = scaler.inverse_transform(self.prediction)
+
+        return self.results
+
+        
+
+
 
 
                 
