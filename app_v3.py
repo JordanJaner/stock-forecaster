@@ -4,8 +4,8 @@ import numpy as np
 import joblib
 from joblib import load
 import pandas as pd
-# import plotly.express as px
-# import plotly.graph_objects as go
+import plotly.express as px
+import plotly.graph_objects as go
 # import uuid
 from input_v2 import Model
 import yfinance as yf
@@ -50,10 +50,10 @@ def main():
         data = SPF.extract_data(ticker)
         X = SPF.reshape()
 
-        scaler = MinMaxScaler(feature_range = (0, 1))
+        # scaler = MinMaxScaler(feature_range = (0, 1))
         # Get prediction
         prediction = model.predict(X)
-        prediction = scaler.inverse_transform(prediction)
+        # prediction = scaler.inverse_transform(prediction)
         
     else:
         prediction = ""
