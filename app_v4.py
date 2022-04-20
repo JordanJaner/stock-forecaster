@@ -7,35 +7,16 @@ import pandas as pd
 # import plotly.express as px
 # import plotly.graph_objects as go
 # import uuid
-from input_v2 import Model
+from input_v3 import Model
 import yfinance as yf
-from keras.models import load_model
+# from keras.models import load_model
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
 
-#load model
-model = load_model("model.h5")
+# #load model
+# model = load_model("model.h5")
 
 app = Flask(__name__)
 
-# @app.route('/index')
-# def index():
-#     app.static_folder = 'static'
-#     return render_template("index.html")
-
-# @app.route('/getstarted')
-# def getstarted():
-#     app.static_folder = 'static'
-#     return render_template("getstarted.html")
-
-# @app.route('/crypto')
-# def crypto():
-#     app.static_folder = 'static'
-#     return render_template("crypto.html")
-
-# @app.route('/calendar')
-# def calendar():
-#     app.static_folder = 'static'
-#     return render_template("calendar.html")
 
 @app.route('/', methods=['GET', 'POST'])
 def main():
@@ -55,7 +36,7 @@ def main():
         
         
     else:
-        prediction = ""
+        stock_prediction = ""
         
     return render_template("index.html", output = stock_prediction)
 
