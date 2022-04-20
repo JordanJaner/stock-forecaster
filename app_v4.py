@@ -2,6 +2,7 @@
 from flask import Flask, render_template, request
 import numpy as np
 import joblib
+import json
 from joblib import load
 import pandas as pd
 import plotly.express as px
@@ -34,11 +35,12 @@ def main():
 
         # Get prediction
         
-        
     else:
         stock_prediction = ""
-        
-    return render_template("index.html", output = stock_prediction)
+
+    graph_data = stock_prediction.make_graph() 
+    graphJSON = json.dumps(graph_data, cls=plotly.utils.PlotlyJSONEncoder)  
+    return render_template("index.html", output = stock_prediction, graphJSON=graphJSON)
 
 @app.route('/getstarted')
 def getstarted():

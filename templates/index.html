@@ -169,7 +169,13 @@
         </div> -->
       <!-- </div>
     </div> --> 
+    <script type="text/javascript">
+         
+      var graphs = {{graphJSON | safe}};
+      
+      Plotly.plot('chart',graphs,{});        
 
+    </script>
     <!-- Footer Section -->
     <div class="footer__container">
       <div class="footer__links">
@@ -217,6 +223,8 @@
     <script src="app.js"></script>
     <script type="text/javascript" src="{{url_for('static', filename= 'app.js')}}"></script>
     <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet" />
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://d14fo0winaifog.cloudfront.net/plotly-basic.js"></script>
   </body>
 </html>
