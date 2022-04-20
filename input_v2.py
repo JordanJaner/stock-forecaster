@@ -15,6 +15,7 @@ import plotly.graph_objects as go
 # import yahoo_fin.stock_info as si
 import yfinance as yf
 from app_v3 import main
+from datetime import date
 # from yahoofinancials import YahooFinancials
 
 class Model():
@@ -28,8 +29,9 @@ class Model():
         
         
     def extract_data(self, ticker):
+        today = date.today()
         dl_df= yf.download(ticker, start='2021-01-01', 
-                    end='2022-04-01', progress=False)
+                    end=today, progress=False)
     
         self.ticker_set = pd.DataFrame(dl_df)
         self.ticker_set.reset_index(inplace = True)
