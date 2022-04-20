@@ -9,9 +9,12 @@ import datetime
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-
+from sklearn.preprocessing import StandardScaler, MinMaxScaler
+import plotly.express as px
+import plotly.graph_objects as go
 # import yahoo_fin.stock_info as si
 import yfinance as yf
+from app_v3 import main
 # from yahoofinancials import YahooFinancials
 
 class Model():
@@ -20,7 +23,7 @@ class Model():
     '''
     def __init__(self):
         '''
-        starting out with our model
+        starting out 
         '''
         
         
@@ -42,7 +45,8 @@ class Model():
         # 'reshape' function to get it into a NumPy format
         inputs = inputs.reshape(-1,1)
         # Scaling the input
-        inputs = scaler.transform(inputs)
+        scaler = MinMaxScaler(feature_range = (0, 1))
+        inputs = scaler.fit_transform(inputs)
 
         X_test = []
 
@@ -52,39 +56,38 @@ class Model():
         X_test = np.array(X_test)
         # Making the input in 3D format
         X_test = np.reshape(X_test, (X_test.shape[0], X_test.shape[1], 1))
-
+        return X_test
 # Graph Function
-# def make_graph(self, ticker, model, output_file='predictions_pic.svg'):
-#   date = self.ticker_set['Date']
-#   Last314Days = date.tail(314)
-#   real_df = self.ticker_set['Open']
-#   real_df.columns = ['Real']
-#   predicted_df = prediction
-#   predicted_df.columns = ['Predicted']
-#   line_df = pd.concat([Last314Days, real_df, predicted_df], axis=1)
-#   fig = go.Figure([
-#                  go.Scatter(
-#                      x=line_df['Date'],
-#                      y=line_df[f'Real {ticker}'],
-#                     showlegend=True,
-#                     name=f'Real {ticker}'
-#                  ),
-#                  go.Scatter(
-#                      x=line_df['Date'],
-#                      y=line_df[f'Predicted {ticker}'],
-#                     showlegend=True,
-#                     name=f'Predicted {ticker}'
-#                  )
-#   ])
-
-#   fig.update_layout(
-#                     yaxis_title = 'Stock Prices (USD)',
-#       xaxis_title='Dates',
-#       title=f'Real and Predicted {ticker} Stock Prices',
-#       hovermode="x"
-#   )
-#   fig.write_image(output_file, width=800)
-#   return fig
+def make_graph(extract_data(self.ticker_set), ticker, output_file='predictions_pic.svg'):
+  date = extract_data(self.ticker_set['Date'])
+  Last314Days = date.tail(314)
+  real_df = extract_data(self.ticker_set['Open'])
+  real_df.columns = ['Real']
+  predicted_df = main.output
+  predicted_df.columns = ['Predicted']
+  line_df = pd.concat([Last314Days, real_df, predicted_df], axis=1)
+  fig = go.Figure([
+                 go.Scatter(
+                     x=line_df['Date'],
+                     y=line_df[f'Real {ticker}'],
+                    showlegend=True,
+                    name=f'Real {ticker}'
+                 ),
+                 go.Scatter(
+                     x=line_df['Date'],
+                     y=line_df[f'Predicted {ticker}'],
+                    showlegend=True,
+                    name=f'Predicted {ticker}'
+                 )
+  ])
+  fig.update_layout(
+                    yaxis_title = 'Stock Prices (USD)',
+      xaxis_title='Dates',
+      title=f'Real and Predicted {ticker} Stock Prices',
+      hovermode="x"
+  )
+  fig.write_image(output_file, width=800)
+  return fig
 
 
                 
