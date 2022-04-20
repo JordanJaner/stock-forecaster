@@ -58,10 +58,10 @@ class Model():
         X_test = np.reshape(X_test, (X_test.shape[0], X_test.shape[1], 1))
         return X_test
 # Graph Function
-def make_graph(extract_data(self.ticker_set), ticker, output_file='predictions_pic.svg'):
-  date = extract_data(self.ticker_set['Date'])
+def make_graph(self, ticker, output_file='predictions_pic.svg'):
+  date = self.ticker_set['Date']
   Last314Days = date.tail(314)
-  real_df = extract_data(self.ticker_set['Open'])
+  real_df = self.ticker_set['Open']
   real_df.columns = ['Real']
   predicted_df = main.output
   predicted_df.columns = ['Predicted']
