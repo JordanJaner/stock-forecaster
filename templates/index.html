@@ -152,30 +152,27 @@
       </div>
     </div>
 
-   <!-- Services Section
-    <div class="services">
-      <img id="main_img" scr="{{url_for('static', filename= 'image1.jpg')}}" />
-      <h1>See what the hype is about</h1>
-      <div class="services__container">
-        <img scr="{{url_for('static', filename= 'image1.jpg')}}" /> -->
-        <!-- <div class="services__card"> -->
-          <!-- <img scr="{{url_for('static', filename= 'image1.jpg')}}" /> -->
-          <!-- <h2>Deep Dive Into S&P500</h2>
-          <button>Get Started</button>
-        </div> -->
-        <!-- <div class="services__card">
-          <h2>Deep Dive Into DOW</h2>
-          <button>Get Started</button>
-        </div> -->
-      <!-- </div>
-    </div> --> 
-    <script type="text/javascript">
-         
-      var graphs = {{graphJSON | safe}};
-      
-      Plotly.plot('chart',graphs,{});        
 
-    </script>
+  <!-- Services Section -->
+  <div class="services">
+    <h1>View S&P 500 Stock Below</h1>
+    <div class="services__container">
+      <form name="form", method="POST", style="text-align: center;">
+        <br>
+        Ticker: <input type="Ticker" name="Ticker", placeholder="Enter Ticker Abb" required/>
+        <br><br>
+        <button value="Submit">Run</button>
+    </form>
+    <p style="color: #ffffff">{{ output }}</p>
+    </div>
+</div>
+<script type="text/javascript">
+         
+  var graphs = {{graphJSON | safe}};
+  
+  Plotly.plot('chart',graphs,{}); 
+</script>   
+
     <!-- Footer Section -->
     <div class="footer__container">
       <div class="footer__links">
@@ -213,13 +210,13 @@
         </div>
       </section>
     </div>
-    <form name="form", method="POST", style="text-align: center;">
+    <!-- <form name="form", method="POST", style="text-align: center;">
       <br>
       Ticker: <input type="Ticker" name="Ticker", placeholder="Enter Ticker Abb" required/>
       <br><br>
       <button value="Submit">Run</button>
-  </form>
-  <p style="text-align: center;">{{ output }}</p>
+  </form> -->
+  <!-- <p style="text-align: center;">{{ output }}</p> -->
     <script src="app.js"></script>
     <script type="text/javascript" src="{{url_for('static', filename= 'app.js')}}"></script>
     <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet" />

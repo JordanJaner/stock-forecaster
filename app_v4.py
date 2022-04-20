@@ -1,10 +1,15 @@
 
-from flask import Flask, render_template, request
+# from types import NoneType
+from flask import Flask, render_template, request, url_for, jsonify
 import numpy as np
 import joblib
 import json
 from joblib import load
 import pandas as pd
+import matplotlib.pyplot as plt
+from plotly.graph_objs import Scatter
+import plotly
+# import plotly.plotly as py
 import plotly.express as px
 import plotly.graph_objects as go
 # import uuid
@@ -13,8 +18,7 @@ import yfinance as yf
 # from keras.models import load_model
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
 from datetime import date
-#load model
-# model = load_model("model.h5")
+
 
 app = Flask(__name__)
 
@@ -25,7 +29,6 @@ def main():
  # If a form is submitted
     if request.method == "POST":
         
-        
         # Get values through input bars
         ticker = request.form.get("Ticker")
         SPF = Model()
@@ -33,14 +36,16 @@ def main():
         # Get prediction
         stock_prediction = SPF.reshape_model()
 
-        # Get prediction
-        
+        # Get prediction    
+        graph_data = SPF.make_graph()
+        graphJSON = json.dumps(graph_data, cls=plotly.utils.PlotlyJSONEncoder)
+
     else:
         stock_prediction = ""
 
-    graph_data = stock_prediction.make_graph() 
-    graphJSON = json.dumps(graph_data, cls=plotly.utils.PlotlyJSONEncoder)  
     return render_template("index.html", output = stock_prediction, graphJSON=graphJSON)
+
+
 
 @app.route('/getstarted')
 def getstarted():

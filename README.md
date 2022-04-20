@@ -53,6 +53,4 @@ Using Apple stock as our tester with 60 TimeSteps and 100 TimeSteps
 <img src="/templates/images/100apple.png" alt="100 TimeSteps"/>
 
 ### Conclusion and Limitations
-
-
-
+After the creation, reshaping, and training of the model we have concluded that our model is very accurate. For improved predictions, we have trained this model on stock price data for companies in the same sector, region, subsidiaries, etc. (in our analysis big techs). Therefore, model prediction results on stock prices of companies out of this sector may not be quite accurate. We also could have included more tech companies in our training, and make our model sector specific for better prediction results. Our Machine learning model only asks user to input their stock of interest. We could also ask user to input the time period they were interested to look at. However, for the interest of time we set the period as a constant and not a user input variable.
