@@ -10,11 +10,15 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
+import plotly
+import plotly.plotly as py
 import plotly.express as px
+import json
 import plotly.graph_objects as go
 # import yahoo_fin.stock_info as si
 import yfinance as yf
 from app_v3 import main
+from datetime import date
 # from yahoofinancials import YahooFinancials
 
 class Model():
@@ -28,8 +32,9 @@ class Model():
         
         
     def extract_data(self, ticker):
+        today = date.today()
         dl_df= yf.download(ticker, start='2021-01-01', 
-                    end='2022-04-01', progress=False)
+                    end=today, progress=False)
     
         self.ticker_set = pd.DataFrame(dl_df)
         self.ticker_set.reset_index(inplace = True)
@@ -69,15 +74,15 @@ def make_graph(self, ticker, output_file='predictions_pic.svg'):
   fig = go.Figure([
                  go.Scatter(
                      x=line_df['Date'],
-                     y=line_df[f'Real {ticker}'],
+                     y=line_df['Real'],
                     showlegend=True,
-                    name=f'Real {ticker}'
+                    name='Real'
                  ),
                  go.Scatter(
                      x=line_df['Date'],
-                     y=line_df[f'Predicted {ticker}'],
+                     y=line_df['Predicted'],
                     showlegend=True,
-                    name=f'Predicted {ticker}'
+                    name='Predicted'
                  )
   ])
   fig.update_layout(
@@ -86,8 +91,24 @@ def make_graph(self, ticker, output_file='predictions_pic.svg'):
       title=f'Real and Predicted {ticker} Stock Prices',
       hovermode="x"
   )
-  fig.write_image(output_file, width=800)
+
+    # return graphJSON
+#   fig.write_image(output_file, width=800)
   return fig
 
+    # def plot_data(self):
+    #     graph_data = [ 
+    #             Scatter(
+    #                 x=self.training_set['Date'],
+    #                 y=self.training_set['Open'],
+    #                 name='Reference period'
+    #             ), 
+    #             Scatter(
+    #                  x=self.df['Date'],
+    #                 y=self.df['Forecast'],
+    #                 name='Forecast period'
+    #             )
+    #         ]     
+    #     return graph_data
 
                 
