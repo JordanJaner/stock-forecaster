@@ -4,14 +4,14 @@ import numpy as np
 import joblib
 from joblib import load
 import pandas as pd
-# import plotly.express as px
-# import plotly.graph_objects as go
+import plotly.express as px
+import plotly.graph_objects as go
 # import uuid
 from input_v2 import Model
 import yfinance as yf
 from keras.models import load_model
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
-
+from datetime import date
 #load model
 model = load_model("model.h5")
 
