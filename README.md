@@ -6,7 +6,7 @@
 
 The goal of this project is to use previous stock stats from datasets to predict future highs and lows with machine learning. In doing so we will be able to answer questions such as what are the strongest stocks to invest in for increased gains, or which stocks to not invest in to avoid losses based on the previous stock history. We will provide an analysis and visualization to help the reader better understand the prediction of stock flow.
 
-<img src="/templates/images/stock_projection_intro.png" alt="Stock Project Intro"/>
+<img src="/templates/images/stock_project_intro.png" alt="Stock Project Intro"/>
 
 ### Research Questions
 * Are the major stocks the best to invest in? 
