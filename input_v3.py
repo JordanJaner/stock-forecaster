@@ -10,6 +10,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
+from keras.models import load_model
 
 # import yahoo_fin.stock_info as si
 import yfinance as yf
