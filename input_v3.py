@@ -73,64 +73,97 @@ class Model():
         return self.results
 
     # Graph Function
-    def make_graph(self):
-        date = self.ticker_set['Date']
-        Last314Days = date.tail(314)
-        real_df = self.ticker_set['Open']
-        real_df.columns = ['Real']
-        predicted_df = self.results
-        predicted_df.columns = ['Predicted']
-        line_df = pd.concat([Last314Days, real_df, predicted_df], axis=1)
-        graph_data = go.Figure([
-                        go.Scatter(
-                            x=line_df['Date'],
-                            y=line_df['Real'],
-                            showlegend=True,
-                            name='Real'
-                        ),
-                        go.Scatter(
-                            x=line_df['Date'],
-                            y=line_df['Predicted'],
-                            showlegend=True,
-                            name='Predicted'
-                        )
-        ])
-        graph_data.update_layout(
-                            yaxis_title = 'Stock Prices (USD)',
-            xaxis_title='Dates',
-            title='Real and Predicted Stock Prices',
-            hovermode="x"
-        )
-        return graph_data
+    # def make_graph(self):
+    #     date = self.ticker_set['Date']
+    #     Last314Days = date.tail(314)
+    #     real_df = self.ticker_set['Open']
+    #     real_df.columns = ['Real']
+    #     predicted_df = self.results
+    #     predicted_df.columns = ['Predicted']
+    #     line_df = pd.concat([Last314Days, real_df, predicted_df], axis=1)
+    #     graph_data = go.Figure([
+    #                     go.Scatter(
+    #                         x=line_df['Date'],
+    #                         y=line_df['Real'],
+    #                         showlegend=True,
+    #                         name='Real'
+    #                     ),
+    #                     go.Scatter(
+    #                         x=line_df['Date'],
+    #                         y=line_df['Predicted'],
+    #                         showlegend=True,
+    #                         name='Predicted'
+    #                     )
+    #     ])
+    #     graph_data.update_layout(
+    #                         yaxis_title = 'Stock Prices (USD)',
+    #         xaxis_title='Dates',
+    #         title='Real and Predicted Stock Prices',
+    #         hovermode="x"
+    #     )
+    #     return graph_data
    
     # def plot_data(self):
-    #     # date = self.ticker_set['Date']
-    #     # Last314Days = date.tail(314)
-    #     # real_df = self.ticker_set['Open']
-    #     # real_df.columns = ['Real']
-    #     # predicted_df = self.results
-    #     # predicted_df.columns = ['Predicted']
-    #     # line_df = pd.concat([Last314Days, real_df, predicted_df], axis=1)
+    #     date = self.ticker_set['Date']
+    #     Last314Days = date.tail(314)
+    #     real_df = self.ticker_set['Open']
+    #     real_df.columns = ['Real']
+    #     predicted_df = self.results
+    #     predicted_df.columns = ['Predicted']
+    #     line_df = pd.concat([Last314Days, real_df, predicted_df], axis=1)
     #     graph_data = [
     #                     Scatter(
     #                         x=self.ticker_set['Date'],
     #                         y=self.ticker_set['Open'],
     #                         showlegend=True,
+    #                         name='Real'),
+    #                      Scatter(
+    #                          x=self.ticker_set['Date'],
+    #                          y=self.results,
+    #                          showlegend=True,
+    #                          name='Predicted')]
+    #          graph_data.update_layout(
+    #                              yaxis_title = 'Stock Prices (USD)',
+    #              xaxis_title='Dates',
+    #              title='Real and Predicted Stock Prices',
+    #              hovermode="x")
+    #     return graph_data
+
+
+    # def graph():
+    #     # stock = input("Enter stock name(ex:GOOGL, AAPL): ")
+    #     # df_whole = extract_data(stock)
+    #     # df = df_whole.filter(['Open'])
+    #     # df['ds'] = df.index
+    #     # df['y'] = np.log(df['Close'])
+
+    #     date = self.ticker_set['Date']
+    #     Last314Days = date.tail(314)
+    #     real_df = self.ticker_set['Open']
+    #     real_df.columns = ['Real']
+    #     predicted_df = self.results
+    #     predicted_df.columns = ['Predicted']
+    #     line_df = pd.concat([Last314Days, real_df, predicted_df], axis=1)
+    #     graph_data = go.Figure([
+    #                     go.Scatter(
+    #                         x=line_df['Date'],
+    #                         y=line_df['Real'],
+    #                         showlegend=True,
     #                         name='Real'
-    #                     ) #,
-    #                     # Scatter(
-    #                     #     x=self.ticker_set['Date'],
-    #                     #     y=self.results,
-    #                     #     showlegend=True,
-    #                     #     name='Predicted'
-    #                     # )
-    #                 ]
-    #         # graph_data.update_layout(
-    #         #                     yaxis_title = 'Stock Prices (USD)',
-    #         #     xaxis_title='Dates',
-    #         #     title='Real and Predicted Stock Prices',
-    #         #     hovermode="x"
-    #         # )
+    #                     ),
+    #                     go.Scatter(
+    #                         x=line_df['Date'],
+    #                         y=line_df['Predicted'],
+    #                         showlegend=True,
+    #                         name='Predicted'
+    #                     )
+    #     ])
+    #     graph_data.update_layout(
+    #                         yaxis_title = 'Stock Prices (USD)',
+    #         xaxis_title='Dates',
+    #         title='Real and Predicted Stock Prices',
+    #         hovermode="x"
+    #     )
     #     return graph_data
 
 
