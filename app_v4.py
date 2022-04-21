@@ -37,13 +37,13 @@ def main():
         stock_prediction = SPF.reshape_model()
 
         # Get prediction    
-        graph_data = SPF.make_graph()
-        graphJSON = json.dumps(graph_data, cls=plotly.utils.PlotlyJSONEncoder)
+        # graph_data = SPF.make_graph()
+        # graphJSON = json.dumps(graph_data, cls=plotly.utils.PlotlyJSONEncoder)
 
     else:
         stock_prediction = ""
 
-    return render_template("index.html", output = stock_prediction, graphJSON=graphJSON)
+    return render_template("index.html", output = stock_prediction) #, graphJSON=graphJSON
 
 
 
