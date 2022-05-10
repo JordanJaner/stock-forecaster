@@ -1,7 +1,3 @@
-# !pip install yahoo_fin
-# !pip install yfinance
-# !pip install yahoofinancials
-
 
 import numpy as np
 import requests
@@ -11,17 +7,10 @@ import numpy as np
 import pandas as pd
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
 from keras.models import load_model
-import plotly
-from plotly.graph_objs import Scatter
-# import plotly.plotly as py
-import plotly.express as px
 import json
-import plotly.graph_objects as go
-# from app_v4 import main
-# import yahoo_fin.stock_info as si
 import yfinance as yf
 from datetime import date
-# from yahoofinancials import YahooFinancials
+
 
 #load model
 model = load_model("model.h5")
@@ -71,102 +60,3 @@ class Model():
         self.results = scaler.inverse_transform(self.prediction)
 
         return self.results
-
-    # Graph Function
-    # def make_graph(self):
-    #     date = self.ticker_set['Date']
-    #     Last314Days = date.tail(314)
-    #     real_df = self.ticker_set['Open']
-    #     real_df.columns = ['Real']
-    #     predicted_df = self.results
-    #     predicted_df.columns = ['Predicted']
-    #     line_df = pd.concat([Last314Days, real_df, predicted_df], axis=1)
-    #     graph_data = go.Figure([
-    #                     go.Scatter(
-    #                         x=line_df['Date'],
-    #                         y=line_df['Real'],
-    #                         showlegend=True,
-    #                         name='Real'
-    #                     ),
-    #                     go.Scatter(
-    #                         x=line_df['Date'],
-    #                         y=line_df['Predicted'],
-    #                         showlegend=True,
-    #                         name='Predicted'
-    #                     )
-    #     ])
-    #     graph_data.update_layout(
-    #                         yaxis_title = 'Stock Prices (USD)',
-    #         xaxis_title='Dates',
-    #         title='Real and Predicted Stock Prices',
-    #         hovermode="x"
-    #     )
-    #     return graph_data
-   
-    # def plot_data(self):
-    #     date = self.ticker_set['Date']
-    #     Last314Days = date.tail(314)
-    #     real_df = self.ticker_set['Open']
-    #     real_df.columns = ['Real']
-    #     predicted_df = self.results
-    #     predicted_df.columns = ['Predicted']
-    #     line_df = pd.concat([Last314Days, real_df, predicted_df], axis=1)
-    #     graph_data = [
-    #                     Scatter(
-    #                         x=self.ticker_set['Date'],
-    #                         y=self.ticker_set['Open'],
-    #                         showlegend=True,
-    #                         name='Real'),
-    #                      Scatter(
-    #                          x=self.ticker_set['Date'],
-    #                          y=self.results,
-    #                          showlegend=True,
-    #                          name='Predicted')]
-    #          graph_data.update_layout(
-    #                              yaxis_title = 'Stock Prices (USD)',
-    #              xaxis_title='Dates',
-    #              title='Real and Predicted Stock Prices',
-    #              hovermode="x")
-    #     return graph_data
-
-
-    # def graph():
-    #     # stock = input("Enter stock name(ex:GOOGL, AAPL): ")
-    #     # df_whole = extract_data(stock)
-    #     # df = df_whole.filter(['Open'])
-    #     # df['ds'] = df.index
-    #     # df['y'] = np.log(df['Close'])
-
-    #     date = self.ticker_set['Date']
-    #     Last314Days = date.tail(314)
-    #     real_df = self.ticker_set['Open']
-    #     real_df.columns = ['Real']
-    #     predicted_df = self.results
-    #     predicted_df.columns = ['Predicted']
-    #     line_df = pd.concat([Last314Days, real_df, predicted_df], axis=1)
-    #     graph_data = go.Figure([
-    #                     go.Scatter(
-    #                         x=line_df['Date'],
-    #                         y=line_df['Real'],
-    #                         showlegend=True,
-    #                         name='Real'
-    #                     ),
-    #                     go.Scatter(
-    #                         x=line_df['Date'],
-    #                         y=line_df['Predicted'],
-    #                         showlegend=True,
-    #                         name='Predicted'
-    #                     )
-    #     ])
-    #     graph_data.update_layout(
-    #                         yaxis_title = 'Stock Prices (USD)',
-    #         xaxis_title='Dates',
-    #         title='Real and Predicted Stock Prices',
-    #         hovermode="x"
-    #     )
-    #     return graph_data
-
-
-
-
-                

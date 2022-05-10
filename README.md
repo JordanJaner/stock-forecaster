@@ -11,10 +11,7 @@ The goal of this project is to use previous stock stats from datasets to predict
 <img src="/templates/images/stock_project_intro.png" alt="Stock Project Intro"/>
 
 ### Research Questions
-* Are the major stocks the best to invest in? 
-* What are the best stocks to buy for next year? 
-* What are the safest types of stocks to buy based on past and projected stats? 
-* What period of the year showed the most potential to invest?
+* Can we create a model to predict stocks?
 
 ### Data Sources
 For this project we used Yahoo Finance API to extract S&P 500 data. Initially we were going to train S&P 500, DOW, and NASDAQ, but we ran into problems dealing with the size of the data. Ultimately we only used S&P 500 and only used 1 year worth of data to train. We exported into a CSV and then used Google Colab for Machine Learning.
