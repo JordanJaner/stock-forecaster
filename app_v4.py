@@ -6,13 +6,6 @@ import joblib
 import json
 from joblib import load
 import pandas as pd
-import matplotlib.pyplot as plt
-from plotly.graph_objs import Scatter
-import plotly
-# import plotly.plotly as py
-import plotly.express as px
-import plotly.graph_objects as go
-# import uuid
 from input_v3 import Model
 import yfinance as yf
 # from keras.models import load_model
